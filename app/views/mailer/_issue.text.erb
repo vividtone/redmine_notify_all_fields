@@ -6,7 +6,6 @@
 * <%=l(:field_priority)%>: <%= issue.priority %>
 <% (issue.tracker.core_fields - ['parent_issue_id']).each do |field| -%>
 <% v = issue.send(field.sub(/_id$/, '')) -%>
-<% next unless v -%>
 * <%= l("field_"+field.sub(/_id$/, '')) %>: <%= v %>
 <% end -%>
 <% issue.custom_field_values.each do |c| %>* <%= c.custom_field.name %>: <%= show_value(c) %>
